@@ -11,29 +11,17 @@ CREATE TABLE users (
     password_reset_expires DATETIME DEFAULT NULL,
     last_password_change DATETIME DEFAULT NULL,
     is_two_factor_enabled BOOLEAN DEFAULT FALSE,
-    brikcoin_balance DECIMAL(10,5) DEFAULT 0.00000,  -- Up to 5 decimal points
+    brikcoin_balance DECIMAL(10,5) DEFAULT 0.00000,
     gea_status VARCHAR(255) DEFAULT NULL,
-    language_pref VARCHAR(50) DEFAULT NULL,
-    profile_pic VARCHAR(255) DEFAULT NULL,
-    country VARCHAR(255) DEFAULT NULL,
     terms_of_service BOOLEAN DEFAULT TRUE,
     notes TEXT DEFAULT NULL,
     flagged BOOLEAN DEFAULT FALSE,
     suspended BOOLEAN DEFAULT FALSE,
     validation_credits INT DEFAULT 3,
-    ayyew_score DECIMAL(10,2) DEFAULT 0.00,  -- Up to 2 decimal points
-    plastic_score DECIMAL(10,2) DEFAULT 0.00,  -- Up to 2 decimal points
-    carbon_score DECIMAL(10,2) DEFAULT 0.00,  -- Up to 2 decimal points
-    biodiversity_score DECIMAL(10,2) DEFAULT 0.00,  -- Up to 2 decimal points
-    -- Contact Credentials
+    profile_pic VARCHAR(255) DEFAULT NULL,
+    country_id INT,  -- Foreign key to the countries table
     email VARCHAR(255) UNIQUE NOT NULL,
-    phone_number VARCHAR(15) DEFAULT NULL,
-    primary_contact_credential VARCHAR(255) DEFAULT NULL,
-    snail_mail_address VARCHAR(255) DEFAULT NULL,
-    wa_phone VARCHAR(15) DEFAULT NULL,
-    sms_phone VARCHAR(15) DEFAULT NULL,
-    signal_phone VARCHAR(15) DEFAULT NULL,
-    telegram_phone VARCHAR(15) DEFAULT NULL,
-    line_phone VARCHAR(15) DEFAULT NULL,
-    authenticity_score DECIMAL(3,1) DEFAULT 5.0
+    languages_id INT,  -- Foreign key to the languages_tb table
+    FOREIGN KEY (country_id) REFERENCES countries(country_id),
+    FOREIGN KEY (languages_id) REFERENCES languages_tb(languages_id)
 );
