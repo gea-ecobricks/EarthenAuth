@@ -1,0 +1,6 @@
+CREATE TABLE languages_tb (
+    languages_id INT AUTO_INCREMENT PRIMARY KEY,
+    languages_native_name VARCHAR(255) NOT NULL,
+    languages_eng_name VARCHAR(255) NOT NULL,
+    language_active BOOLEAN DEFAULT TRUE
+);
