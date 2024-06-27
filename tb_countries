@@ -1,0 +1,9 @@
+CREATE TABLE countries (
+    country_id INT AUTO_INCREMENT PRIMARY KEY,
+    country_name VARCHAR(255) UNIQUE NOT NULL,
+    country_population INT,
+    country_plastic_consumption DECIMAL(15,2),  -- Adjust the size if necessary
+    per_capita_consumption DECIMAL(15,2),  -- Adjust the size if necessary
+    country_code VARCHAR(5) UNIQUE,
+    country_language VARCHAR(255)
+);
